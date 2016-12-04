@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :authentications
+  get '/auth/:provider/callback', to: 'authentications#create'
   devise_for :users
   resources :articles
   root 'articles#index'
